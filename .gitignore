@@ -130,4 +130,8 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+<<<<<<< HEAD
 # End of https://www.gitignore.io/api/webstorm
+=======
+# End of https://www.gitignore.io/api/webstorm
+>>>>>>> 02a821c5f315119a3603b49b68cfd917703c95e4
