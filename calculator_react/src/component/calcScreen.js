@@ -1,28 +1,84 @@
 import React, {Component} from 'react';
-import * as API from '../api/API';
+import * as API_Addition from '../api/API_Addition';
+import * as API_Subtraction from '../api/API_Subtraction';
+import * as API_Multiplication from '../api/API_Multiplication';
+import * as API_Division from '../api/API_Division';
 
 class CalcScreen extends Component {
 
     state = {
-        numbers: {n1:0, n2:0},
+        n1:0,
+        n2:0,
         result: 0,
         operation: '',
         message: ''
     };
 
     handleSubmit = () => {
-        console.log(this.state.operation+" "+this.state.numbers.n1+" "+this.state.numbers.n2);
-        API.calculate(this.state)
-            .then ( result =>  {
-                const r = result.result;
-                const message = result.message;
-                console.log(r);
-                this.setState({
-                    ...this.state,
-                    result: r,
-                    message: message
-                });
-            });
+        console.log(this.state.operation+" "+this.state.n1+" "+this.state.n2);
+        switch(this.state.operation){
+            case "Addition":
+                API_Addition.calculate(this.state)
+                    .then ( result =>  {
+                        const r = result.result;
+                        const message = result.message;
+                        console.log(r);
+                        this.setState({
+                            ...this.state,
+                            result: r,
+                            message: message
+                        });
+                    });
+                break;
+            case "Subtraction":
+                API_Subtraction.calculate(this.state)
+                    .then ( result =>  {
+                        const r = result.result;
+                        const message = result.message;
+                        console.log(r);
+                        this.setState({
+                            ...this.state,
+                            result: r,
+                            message: message
+                        });
+                    });
+                break;
+            case "Multiplication":
+                API_Multiplication.calculate(this.state)
+                    .then ( result =>  {
+                        const r = result.result;
+                        const message = result.message;
+                        console.log(r);
+                        this.setState({
+                            ...this.state,
+                            result: r,
+                            message: message
+                        });
+                    });
+                break;
+            case "Division":
+                API_Division.calculate(this.state)
+                    .then ( result =>  {
+                        const r = result.result;
+                        const message = result.message;
+                        console.log(r);
+                        if(result.status === 200){
+                            this.setState({
+                                ...this.state,
+                                result: r,
+                                message: message
+                            });
+                        }
+                        else if (result.status === 402){
+                            this.setState({
+                                ...this.state,
+                                message: message
+                            });
+                        }
+                    });
+                break;
+        }
+
     };
 
     render() {
@@ -43,13 +99,11 @@ class CalcScreen extends Component {
                                     name="inputNumber"
                                     id="number1"
                                     placeholder="First number"
-                                    value={this.state.numbers.n1}
+                                    value={this.state.n1}
                                     onChange={(event) => {
                                         this.setState({
-                                            numbers: {
-                                                ...this.state.numbers,
-                                                n1: event.target.value
-                                            }
+                                            ...this.state,
+                                            n1: event.target.value
                                         });
                                     }}
                                 />
@@ -64,13 +118,11 @@ class CalcScreen extends Component {
                                     name="inputNumber"
                                     id="number2"
                                     placeholder="Second number"
-                                    value={this.state.numbers.n2}
+                                    value={this.state.n2}
                                     onChange={(event) => {
                                         this.setState({
-                                            numbers: {
-                                                ...this.state.numbers,
-                                                n2: event.target.value
-                                            }
+                                            ...this.state,
+                                            n2: event.target.value
                                         });
                                     }}
                                 />
