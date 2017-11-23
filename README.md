@@ -1,2 +1,10 @@
 # Calculator-Lab1-CMPE-273
-Calculator using React.js - Node.js and HTML5 with testing in JMeter
+
+*Front end - ReactJS, Bootstrap, HTML5
+
+*Back end - NodeJS
+
+*Performance testing using JMeter for 
+  - 1000 calls for random operation
+  - 5000 calls for random operations
+  - 100 users each performing 1000 calls
