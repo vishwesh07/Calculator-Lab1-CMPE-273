@@ -7,4 +7,4 @@ How to run calculator back end?
 
 How can I change port, if 3001 port is occupied?
   - Go to calculator_node/bin/www
-  - Change '3001' to currently available port number in " var port = normalizePort(process.env.PORT || '3001'); " line
+  - Change '3001' to currently available port number in " var port = normalizePort(process.env.PORT || '3001'); " line
