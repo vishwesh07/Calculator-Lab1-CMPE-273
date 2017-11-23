@@ -5,6 +5,6 @@ How to run calculator front end?
   - Install required dependencies using - npm install
   - Run calculator front end using - npm start
 
-Calculator_react operates on port 3000, but How can I change port, if port '3000' is already occupied?
+How can I change port, if port '3000' is already occupied?
   - Go to node_modules/react-scripts/scripts/start.js
   - Change 3000 to currently available port in " const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000; " line
